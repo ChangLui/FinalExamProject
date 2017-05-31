@@ -44,9 +44,11 @@ void setup() {
       }
     }
   }
-  println(cellSize/2);
-  println(gridImages.length);
-  order = new int[gridWidth * gridHeight];
+  println(finalImages[0]);
+    println(finalImages[1]);
+  println(gridImages[0]);
+    println(gridImages[1]);
+    order = new int[gridWidth * gridHeight];
   for (int x = 0; x < order.length; x++) {
     order[x] = x;
   }
