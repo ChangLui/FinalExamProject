@@ -21,8 +21,8 @@ int status = 1; // 0 = changing; 1 = final
 color[][][] gridImages;
 PImage[] finalImages;
 String[] fileNames = {
-  "data/Eren Jaeger (Human Form).jpg", 
-  "data/Eren Jaeger (Titan Form).jpg"
+  "data/Eren Jaeger (Titan Form).jpg", 
+  "data/Eren Jaeger (Human Form).jpg"
 };
 
 void setup() {
