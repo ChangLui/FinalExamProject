@@ -3,8 +3,7 @@
 //    blob/master/01_P/P_4_3_2_01/P_4_3_2_01.pde
 // Licensed under the Apache License, Version 2.0
 
-/* @pjs preload="data/Eren Jaeger (Human Form).jpg"; */
-/* @pjs preload="data/Eren Jaeger (Titan Form).jpg"; */
+/* @pjs preload="data/Eren Jaeger (Human Form).jpg, data/Eren Jaeger (Titan Form).jpg"; */
 
 int cellSize = 8;
 float scale = 1;      // NOTE: if you change this, you must also change the parameters to the SIZE function below
@@ -21,8 +20,8 @@ int status = 1; // 0 = changing; 1 = final
 color[][][] gridImages;
 PImage[] finalImages;
 String[] fileNames = {
-  "data/Eren Jaeger (Titan Form).jpg", 
-  "data/Eren Jaeger (Human Form).jpg"
+  "data/Eren Jaeger (Human Form).jpg", 
+  "data/Eren Jaeger (Titan Form).jpg"
 };
 
 void setup() {
