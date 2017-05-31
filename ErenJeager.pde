@@ -4,9 +4,9 @@
 // Licensed under the Apache License, Version 2.0
 
 int cellSize = 8;
-float scale = 1;
-int imgWidth = 1280;
-int imgHeight = 720;
+float scale = 1;      // NOTE: if you change this, you must also change the parameters to the SIZE function below
+int imgWidth = 1280;  // NOTE: if you change this, you must also change the parameters to the SIZE function below
+int imgHeight = 720;  // NOTE: if you change this, you must also change the parameters to the SIZE function below
 color[][] display;
 int gridWidth;
 int gridHeight;
@@ -22,11 +22,8 @@ String[] fileNames = {
   "data/Eren Jaeger (Titan Form).jpg"
 };
 
-void settings() {
-  size((int)(imgWidth * scale), (int)(imgHeight * scale));
-}
-
 void setup() {
+  size(1280, 720);  // NOTE: this must be "size(imgWidth * scale, imgHeight * scale);"
   finalImages = new PImage[fileNames.length];
   for (int x = 0; x < fileNames.length; x++) {
     finalImages[x] = loadImage(fileNames[x]);
