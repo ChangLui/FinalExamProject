@@ -2,6 +2,7 @@
 // at https://github.com/generative-design/Code-Package-Processing-3.x/
 //    blob/master/01_P/P_4_3_2_01/P_4_3_2_01.pde
 // Licensed under the Apache License, Version 2.0
+import java.util.Collections;
 
 PImage img1;
 PImage img2;
@@ -12,7 +13,7 @@ int imgWidth = 1280;
 int imgHeight = 720;
 int txtLength;
 int currentLetter;
-IntList i = new IntList();
+ArrayList i = new ArrayList();
 color[][] display;
 int gridWidth;
 int gridHeight;
@@ -52,9 +53,9 @@ void setup() {
   }
 
   for (int x = 0; x < gridWidth * gridHeight; x++) {
-    i.append(x);
+    i.add(x);
   }
-  i.shuffle();
+  Collections.shuffle(i);
   println(i.size());
 }
 
