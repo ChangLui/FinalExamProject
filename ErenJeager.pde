@@ -53,7 +53,7 @@ void setup() {
   }
 
   for (int x = 0; x < gridWidth * gridHeight; x++) {
-    i.append(x);
+    i.add(x);
   }
   Collections.shuffle(i);
   println(i.size());
