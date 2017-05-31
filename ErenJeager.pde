@@ -78,10 +78,10 @@ void draw() {
     }
     for (int z = 0; z < counter; z++) {
       if (z < order.length) {
-        int pxNum = order[z];
-        int targetX = pxNum % gridWidth;
-        int targetY = pxNum / gridWidth;
-        display[targetY][targetX] = gridImages[toPic][targetY][targetX];
+//        int pxNum = order[z];
+//        int targetX = pxNum % gridWidth;
+//        int targetY = pxNum / gridWidth;
+//        display[targetY][targetX] = gridImages[toPic][targetY][targetX];
       } else {
         status = 1;
       }
