@@ -24,8 +24,8 @@ int status = 3; // 0 = shrinking; 1 = replacing; 2 = growing; 3 = final
 color[][][] gridImages;
 PImage[] finalImages;
 String[] fileNames = {
-  "Eren Jaeger (Human Form).jpg", 
-  "Eren Jaeger (Titan Form).jpg"
+  "data/Eren Jaeger (Human Form).jpg", 
+  "data/Eren Jaeger (Titan Form).jpg"
 };
 
 void settings() {
@@ -53,7 +53,7 @@ void setup() {
   }
 
   for (int x = 0; x < gridWidth * gridHeight; x++) {
-    i.add(x);
+    i.append(x);
   }
   Collections.shuffle(i);
   println(i.size());
