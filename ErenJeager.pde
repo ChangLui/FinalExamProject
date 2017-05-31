@@ -17,7 +17,8 @@ int counter;
 int increment = 200;
 int toPic = 0;
 int status = 1; // 0 = changing; 1 = final
-color[][][] gridImages;
+color[][] gridImage0;
+color[][] gridImage1;
 PImage[] finalImages;
 String[] fileNames = {
   "human.jpg", 
@@ -37,9 +38,11 @@ void setup() {
   for (int i = 0; i < finalImages.length; i++) {
     for (int y = 0; y < gridHeight; y++) {
       for (int x = 0; x < gridWidth; x++) {
-        gridImages[i][y][x] = finalImages[i].pixels[y*cellSize*imgWidth+x*cellSize+cellSize/2+imgWidth*cellSize/2];
-        if (i == toPic) {
-          display[y][x] = gridImages[i][y][x];
+        if (i == 0) {
+          gridImage0[y][x] = finalImages[i].pixels[y*cellSize*imgWidth+x*cellSize+cellSize/2+imgWidth*cellSize/2];
+          display[y][x] = gridImage0[y][x];
+        } else {
+          gridImage1[y][x] = finalImages[i].pixels[y*cellSize*imgWidth+x*cellSize+cellSize/2+imgWidth*cellSize/2];           
         }
       }
     }
@@ -81,7 +84,11 @@ void draw() {
         int pxNum = order[z];
         int targetX = pxNum % gridWidth;
         int targetY = pxNum / gridWidth;
-//        display[targetY][targetX] = gridImages[toPic][targetY][targetX];
+        if (toPic == 0) {
+          display[targetY][targetX] = gridImage0[targetY][targetX];
+        } else {
+          display[targetY][targetX] = gridImage1[targetY][targetX];        
+        }
       } else {
         status = 1;
       }
