@@ -101,4 +101,5 @@ void changeImage() {
     } else {
       toPic = 0;
     }
+    println(toPic);
 }
