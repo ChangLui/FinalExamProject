@@ -43,6 +43,7 @@ void setup() {
     }
   }
   println(cellSize/2);
+  println(gridImages.length);
   order = new int[gridWidth * gridHeight];
   for (int x = 0; x < order.length; x++) {
     order[x] = x;
