@@ -46,7 +46,7 @@ void setup() {
   for (int x = 0; x < order.length; x++) {
     order[x] = x;
   }
-  for (int x = order.length - 1; i > 0; i--) {
+  for (int x = order.length - 1; x > 0; x--) {
     int i = (int)random(x + 1);
     int temp = order[x];
     order[x] = order[i];
