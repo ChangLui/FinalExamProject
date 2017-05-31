@@ -2,25 +2,19 @@
 // at https://github.com/generative-design/Code-Package-Processing-3.x/
 //    blob/master/01_P/P_4_3_2_01/P_4_3_2_01.pde
 // Licensed under the Apache License, Version 2.0
-import java.util.Collections;
 
-PImage img1;
-PImage img2;
-boolean showOriginal = false;
 int cellSize = 8;
 float scale = 1;
 int imgWidth = 1280;
 int imgHeight = 720;
-int txtLength;
-int currentLetter;
-ArrayList i;
 color[][] display;
 int gridWidth;
 int gridHeight;
+int[] order;
 int counter;
 int increment = 400;
 int toPic = 0;
-int status = 3; // 0 = shrinking; 1 = replacing; 2 = growing; 3 = final
+int status = 1; // 0 = changing; 1 = final
 color[][][] gridImages;
 PImage[] finalImages;
 String[] fileNames = {
@@ -51,18 +45,23 @@ void setup() {
       }
     }
   }
-  i = new ArrayList();
-  for (int x = 0; x < gridWidth * gridHeight; x++) {
-    i.add(x);
+  order = new int[gridWidth * gridHeight];
+  for (int x = 0; x < order.length; x++) {
+    order[x] = x;
   }
-  Collections.shuffle(i);
+  for (int x = order.length - 1; i > 0; i--) {
+    int i = (int)random(x + 1);
+    int temp = order[x];
+    order[x] = order[i];
+    order[i] = temp;
+  }
   println(i.size());
 }
 
 void draw() {
   background(240);
   noStroke();
-  if (status == 3) {
+  if (status == 1) {
     image(finalImages[toPic], 0, 0, imgWidth * scale, imgHeight * scale);
   } else {
     for (int y = 0; y < display.length; y++) {
@@ -76,13 +75,13 @@ void draw() {
       }
     }
     for (int z = 0; z < counter; z++) {
-      if (z < i.size()) {
-        int pxNum = i.get(z);
+      if (z < order.length) {
+        int pxNum = order[z];
         int targetX = pxNum % gridWidth;
         int targetY = pxNum / gridWidth;
         display[targetY][targetX] = gridImages[toPic][targetY][targetX];
       } else {
-        status = 3;
+        status = 1;
       }
     }
     counter += increment;
@@ -104,7 +103,7 @@ color brighten(color c) {
 
 void keyPressed() {
   if (key == ' ') {
-    status = 1;
+    status = 0;
     counter = 0;
     if (toPic < finalImages.length -1) {
       toPic++;
@@ -113,6 +112,3 @@ void keyPressed() {
     }
   }
 }  
-void keyReleased() {
-  if (key == 's' || key == 'S') saveFrame("_##.png");
-}
