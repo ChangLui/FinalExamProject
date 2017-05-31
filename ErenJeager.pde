@@ -55,7 +55,6 @@ void setup() {
     order[x] = order[i];
     order[i] = temp;
   }
-  println(i.size());
 }
 
 void draw() {
