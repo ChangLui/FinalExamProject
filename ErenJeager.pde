@@ -94,7 +94,6 @@ void mouseClicked() {
 }  
 
 void changeImage() {
-   if (key == ' ') {
     status = 0;
     counter = 0;
     if (toPic < finalImages.length -1) {
@@ -102,5 +101,4 @@ void changeImage() {
     } else {
       toPic = 0;
     }
-  } 
 }
