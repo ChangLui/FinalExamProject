@@ -48,11 +48,7 @@ void setup() {
       }
     }
   }
-  println(finalImages[0]);
-    println(finalImages[1]);
-  println(gridImages[0]);
-    println(gridImages[1]);
-    order = new int[gridWidth * gridHeight];
+  order = new int[gridWidth * gridHeight];
   for (int x = 0; x < order.length; x++) {
     order[x] = x;
   }
