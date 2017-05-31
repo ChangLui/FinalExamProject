@@ -33,7 +33,8 @@ void setup() {
   }
   gridWidth = imgWidth/cellSize;
   gridHeight = imgHeight/cellSize;
-  gridImages = new color[finalImages.length][gridHeight][gridWidth];
+  gridImage0 = new color[gridHeight][gridWidth];
+  gridImage1 = new color[gridHeight][gridWidth];
   display = new color[gridHeight][gridWidth];
   for (int i = 0; i < finalImages.length; i++) {
     for (int y = 0; y < gridHeight; y++) {
