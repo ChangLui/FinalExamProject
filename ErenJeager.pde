@@ -13,7 +13,7 @@ int imgWidth = 1280;
 int imgHeight = 720;
 int txtLength;
 int currentLetter;
-ArrayList i = new ArrayList();
+ArrayList i;
 color[][] display;
 int gridWidth;
 int gridHeight;
@@ -51,7 +51,7 @@ void setup() {
       }
     }
   }
-
+  i = new ArrayList();
   for (int x = 0; x < gridWidth * gridHeight; x++) {
     i.add(x);
   }
