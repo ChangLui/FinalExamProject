@@ -11,6 +11,8 @@ body {
     margin-right: auto
 }
 
+*:focus { outline: none; }
+
 header {
 
 }
