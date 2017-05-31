@@ -12,7 +12,7 @@ int gridWidth;
 int gridHeight;
 int[] order;
 int counter;
-int increment = 400;
+int increment = 200;
 int toPic = 0;
 int status = 1; // 0 = changing; 1 = final
 color[][][] gridImages;
@@ -35,13 +35,14 @@ void setup() {
   for (int i = 0; i < finalImages.length; i++) {
     for (int y = 0; y < gridHeight; y++) {
       for (int x = 0; x < gridWidth; x++) {
-        gridImages[i][y][x] = finalImages[i].pixels[y*cellSize*imgWidth+x*cellSize+cellSize/2];
+        gridImages[i][y][x] = finalImages[i].pixels[y*cellSize*imgWidth+x*cellSize+cellSize/2+imgWidth*cellSize/2];
         if (i == toPic) {
           display[y][x] = gridImages[i][y][x];
         }
       }
     }
   }
+  println(cellSize/2);
   order = new int[gridWidth * gridHeight];
   for (int x = 0; x < order.length; x++) {
     order[x] = x;
@@ -84,21 +85,16 @@ void draw() {
   }
 }
 
-color brighten(color c) {
-  float r, g, b;
-  color output;
-  r = red(c);
-  g = green(c);
-  b = blue(c);
-  r = constrain(r + 150, 0, 255);
-  g = constrain(g + 150, 0, 255);
-  b = constrain(b + 150, 0, 255);
-  output = color(r, g, b);
-  return output;
-}
-
 void keyPressed() {
-  if (key == ' ') {
+  changeImage();
+}  
+
+void mouseClicked() {
+  changeImage();
+}  
+
+void changeImage() {
+   if (key == ' ') {
     status = 0;
     counter = 0;
     if (toPic < finalImages.length -1) {
@@ -106,5 +102,5 @@ void keyPressed() {
     } else {
       toPic = 0;
     }
-  }
-}  
+  } 
+}
